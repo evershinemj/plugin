@@ -5,31 +5,31 @@ command CurrFile        echo expand('%')
 
 command! FunctionList   tab help function-list
 
-command! Sample         tab edit /Users/wangxueming/vimlearning.d/vim-sample-text.txt
+command! Sample         tabe /Users/wangxueming/vimlearning.d/vim-sample-text.txt
 
-command! Snippets       tab edit /Users/wangxueming/vimlearning.d/vimscript-snippets.vim
+command! Snippets       tabe /Users/wangxueming/vimlearning.d/vimscript-snippets.vim
 
-command! MySnippets     tab edit /Users/wangxueming/vimlearning.d/mysnippets.vim
+command! MySnippets     tabe /Users/wangxueming/vimlearning.d/mysnippets.vim
 
-command! VimProfile     tab edit /Users/wangxueming/profile.d/vim.rc
+command! VimProfile     tabe /Users/wangxueming/profile.d/vim.rc
 
 command! RuntimePath    echo &runtimepath
 
-command! Initialization tab help initialization
+command! Initialization tabe initialization
 
 command! ToggleList     set list!
 
 command! CompleteFunc   echo &completefunc
 
-command! MyPlugin       tab edit $MYPLUGIN
+command! MyPlugin       tabe $MYPLUGIN
 
-command! MyOpt          tab edit $MYOPT
+command! MyOpt          tabe $MYOPT
 
-command! MyStart        tab edit $MYSTART
+command! MyStart        tabe $MYSTART
 
 command! ToggleSpell    set spell!
 
-command! LineComplete   tab edit ~/linecomplete/
+command! LineComplete   tabe ~/linecomplete/
 
 command! Tags           echo &tags
 
@@ -41,14 +41,26 @@ command! -bar JUnitTags      setlocal tags+=~/junit4/src/tags  " change set to s
 
 command! AllTags        JavaTags | SpringTags | JUnitTags
 
-command! MySpell        tab edit $MYSPELL
+command! MySpell        tabe $MYSPELL
 
-command! SpringSource   exe "tab view " . expand('$SPRING_SOURCE')
+command! MySpell        tabe $MYSPELL
+
+command! SpringSource   exe "tab view " . expand('$SPRING_SOURCE') " :tab doesn't work in :exe
+
+command! SpringSource   tabe $SPRING_SOURCE
 
 command! SpringRelease  exe "tab view " . expand('$SPRING_RELEASE')
 
+command! SpringRelease  tabe $SPRING_RELEASE
+
 command! SpringReference    exe "tab view " . expand('$SPRING_RELEASE') . "/docs/spring-framework-reference"
+
+command! SpringReference    tabe $SPRING_RELEASE/docs/spring-framework-reference
 
 command! SpringCore     !Safari /Users/wangxueming/Documents/spring-framework-5.0.8.RELEASE/docs/spring-framework-reference/core.html
 
 command! JUnitSource    exe "tab view " . expand('$JUNIT_SOURCE')
+
+command! JUnitSource    tabe $JUNIT_SOURCE
+
+command! TabSplit       tab split
