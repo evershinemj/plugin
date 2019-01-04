@@ -68,3 +68,7 @@ command! TabSplit       tab split
 command! JShell         !jshell
 
 command! GitCommitAll   !git commit -a
+
+command! GitStatus      !git status
+
+command! -nargs=1 GitAdd    !git add <args>
