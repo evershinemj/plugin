@@ -84,3 +84,11 @@ command! -nargs=1 SplitView setlocal readonly | split <args>  " remember to use 
 command! -nargs=1 SplitView split <args> | setlocal readonly  " s/\v(set.*only) \| (sp.*args\>)/\2 | \1/c  " :
 
 command! -nargs=1 TabView   tabe <args> | setlocal readonly
+
+command! GitConfigLocalList     !git config --local --list  " --local for ./.git/config
+
+command! GitConfigGlabalList    !git config --global --list  " --global for ~/.gitconfig 
+
+command! GitConfigLocalEdit     !git config --local  --edit
+
+command! GitConfigGlobalEdit    !git config --global --edit
