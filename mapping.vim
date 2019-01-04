@@ -84,7 +84,7 @@ noremap <unique> <Leader>b	:tabedit ~/.bash_profile<CR>
 "noremap <unique> <Leader>d
 "noremap <unique> <Leader>e
 "noremap <unique> <Leader>f
-noremap <unique> <Leader>g      Bi${GREEN}<Esc>Ea{NC}<Esc> 
+noremap <unique> <Leader>g      Bi${GREEN}<Esc>Ea${NC}<Esc>
 "noremap <unique> <Leader>h
 "noremap <unique> <Leader>i
 "noremap <unique> <Leader>j
@@ -95,7 +95,7 @@ noremap <unique> <Leader>n	:nohlsearch<CR>
 "noremap <unique> <Leader>o
 "noremap <unique> <Leader>p
 "noremap <unique> <Leader>q
-"noremap <unique> <Leader>r
+noremap <unique> <Leader>r     Bi${RED}<Esc>Ea${NC}<Esc>
 noremap <unique> <Leader>s	:tabedit /usr/local/src/<CR>
 "noremap <unique> <Leader>t
 "noremap <unique> <Leader>u
