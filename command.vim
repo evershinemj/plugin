@@ -76,3 +76,11 @@ command! -nargs=1 GitAdd    !git add <args>
 command! GitCommit      !git commit
 
 command! GitLog         !git log
+
+command! -nargs=1 TabHelp   tab help <args>
+
+command! -nargs=1 SplitView setlocal readonly | split <args>  " remember to use setlocal instead of set here
+
+command! -nargs=1 SplitView split <args> | setlocal readonly  " s/\v(set.*only) \| (sp.*args\>)/\2 | \1/c  " :
+
+command! -nargs=1 TabView   tabe <args> | setlocal readonly
