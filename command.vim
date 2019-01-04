@@ -64,3 +64,7 @@ command! JUnitSource    exe "tab view " . expand('$JUNIT_SOURCE')
 command! JUnitSource    tabe $JUNIT_SOURCE
 
 command! TabSplit       tab split
+
+command! JShell         !jshell
+
+command! GitCommitAll   !git commit -a
