@@ -106,3 +106,21 @@ command! CrontabEdit    !crontab -e
 command! MavenCentral   !Safari 'https://central.maven.org/maven2/'
 
 command! -nargs=+ -complete=file JUnitTest  !java -cp .:/opt/junit-4.6/junit-4.6.jar org.junit.runner.JUnitCore <args>
+
+command! WipeOutEndMAndWrite    :%s/$// | write | echo 'End Ctrl-M chars wiped out'
+
+command! -nargs=1 -complete=option HelpOnOption    :help <args> | setlocal nospell | echo 'reset spell with "setlocal nospell"'
+
+command! -nargs=1 -complete=command HelpOnCommand   :help <args> | setlocal nospell | echo 'reset spell with "setlocal nospell"'
+
+command! -nargs=1 -complete=event   HelpOnAutocommandEvent  :help <args> | setlocal nospell | echo 'reset spell with "setlocal nospell"'
+
+command! -nargs=1 -complete=highlight   HelpOnHighlightGroup :help <args> | setlocal nospell | echo 'reset spell with "setlocal nospell"'
+
+command! -nargs=1 -complete=buffer EditBuffer     :edit <args>
+
+command! -nargs=1 -complete=dir NetrwDirectory      :tabe <args>
+
+command! -nargs=1 -complete=file_in_path    SplitFileInPath :split <args>
+
+command! -nargs=1 -complete=var EchoUserVariable    :echo <args>
