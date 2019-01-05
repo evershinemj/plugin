@@ -85,10 +85,24 @@ command! -nargs=1 SplitView split <args> | setlocal readonly  " s/\v(set.*only) 
 
 command! -nargs=1 TabView   tabe <args> | setlocal readonly
 
-command! GitConfigLocalList     !git config --local --list  " --local for ./.git/config
-
-command! GitConfigGlabalList    !git config --global --list  " --global for ~/.gitconfig 
+command! GitConfigLocalList     !git config --local --list  \# --local for ./.git/config  "changed " to \#
+  "changed " to #
+command! GitConfigGlabalList    !git config --global --list  \# --global for ~/.gitconfig   "changed " to \#
 
 command! GitConfigLocalEdit     !git config --local  --edit
 
 command! GitConfigGlobalEdit    !git config --global --edit
+
+command! -nargs=+ GitCloneToHome         !cd ~; git clone <args> 
+
+command! -nargs=+ GitCloneToTheGithubDirectory  !cd ~/github; git clone <args>
+
+command! -nargs=1 CrontabSpecify    !crontab <args>
+
+command! CrontabList    !crontab -l
+
+command! CrontabEdit    !crontab -e
+
+command! MavenCentral   !Safari 'https://central.maven.org/maven2/'
+
+command! -nargs=+ -complete=file JUnitTest  !java -cp .:/opt/junit-4.6/junit-4.6.jar org.junit.runner.JUnitCore <args>
