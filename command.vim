@@ -1,4 +1,4 @@
-" vim: set list :
+" vim: set list tw=0:
 " [text]{white}vim: ... note that there must be
 " whitespace between optional text and 'vim:'
 command CurrFile        echo expand('%')
@@ -104,8 +104,8 @@ command! CrontabList    !crontab -l
 command! CrontabEdit    !crontab -e
 
 command! MavenCentral   !Safari 'https://central.maven.org/maven2/'
-
-command! -nargs=+ -complete=file JUnitTest  !java -cp .:/opt/junit-4.6/junit-4.6.jar org.junit.runner.JUnitCore <args>
+" tested :cd java/junit-tests.d | JUnitTest coffee.CoffeeTest on versions 4.6 and 4.10; both have a . before 'Lift'
+command! -nargs=+ -complete=file -bar JUnitTest  !java -cp .:/opt/junit-4.10/junit-4.10.jar org.junit.runner.JUnitCore <args>
 
 command! WipeOutEndMAndWrite    :%s/$// | write | echo 'End Ctrl-M chars wiped out'
 
@@ -124,3 +124,33 @@ command! -nargs=1 -complete=dir NetrwDirectory      :tabe <args>
 command! -nargs=1 -complete=file_in_path    SplitFileInPath :split <args>
 
 command! -nargs=1 -complete=var EchoUserVariable    :echo <args>
+
+command! CalculatorTest     :cd ~/java/junit-tests.d/calculator/ | JUnitTest CalculatorTest
+
+command! -nargs=1 -complete=file ClassPathCompile  !javac -cp <args>
+
+command! CommandHistory     :history :
+
+command! SearchHistory      :history /
+
+command! ExprHistory        :history =
+
+command! DebugHistory       :history debug
+
+command! AllHistroy         :history all
+" don't use $MyAfter! Using expand is optional here
+command! MyAfter    exe 'tabe ' . expand('$MYAFTER')
+
+command! HelpOnExpressionCommands   :help expression-commands | setlocal nospell | echo 'reset spell with "setlocal nospell"'
+
+command! FullPath   echo expand('%:p')
+
+command! ParameterizedTest  cd ~/java/junit-tests.d/calculator/ | JUnitTest ParameterizedTest
+
+command! CoffeeTest     :cd ~/java/junit-tests.d/ | JUnitTest coffee.CoffeeTest
+
+command! -nargs=+ -complete=file JUnit      exe 'set shellcmdflag=-ic' | !junit <args>
+
+command! -nargs=+ -complete=file JUnitJavac    exe 'set shellcmdflag=-ic' | !junitjavac  <args>
+" command! -nargs=1 -complete=file JDKDocument    exe '!Safari ' . $JDKDOC . '/' . <args>  " use  to expand env variable to file path
+command! -nargs=1 -complete=file JDKDocument    !Safari  /Users/wangxueming/Documents/JDKdocs/api/<args>
