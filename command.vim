@@ -472,3 +472,11 @@ command! JavaSrcZip tabe $JAVA_SRC_ZIP
 command! CurrentDirectory   echo expand('%:p:h')
 
 command! ListDirectory  echo system('ls')
+
+command! ListJava    echo system('ls "$JAVASRC/java/")
+
+command! ListJavax    echo system('ls "$JAVASRC/javax/")
+
+command! BaddCodingCommon   :badd ~/mydict/coding-common
+
+command! TomcatWebappsHome  :tabe $TOMCAT/webapps/home/
