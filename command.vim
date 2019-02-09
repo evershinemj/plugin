@@ -480,3 +480,7 @@ command! ListJavax    echo system('ls "$JAVASRC/javax/")
 command! BaddCodingCommon   :badd ~/mydict/coding-common
 
 command! TomcatWebappsHome  :tabe $TOMCAT/webapps/home/
+
+command! Tomcat     :tabe $TOMCAT
+
+command! Webapps    :tabe $WEBAPPS
