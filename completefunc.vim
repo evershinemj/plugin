@@ -18,4 +18,4 @@ fun! CompleteMonths(findstart, base)
     return res
     endif
 endfun
-set completefunc=CompleteMonths
+" set completefunc=CompleteMonths

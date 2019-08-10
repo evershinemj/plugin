@@ -21,6 +21,43 @@ fun! FunctionFour()
     echo "End of function calling."
 endfun
 
+" use :debug call JDKDocument(...) to debug
+fun! JDKDocument(classname)
+    " arg like java.util.Iterator is passed,
+    " instead of java/util/Iterator.html
+    "
+    " bug found:
+    " variable under argument namespace a:...
+    " are readonly
+    try
+        let filename = a:classname
+        if filename =~ '.*\..*'
+            " call substitute(filename, ';\.;/;g')
+            " substitute() returns a copy, not in place
+            " let filename = call substitute(filename, ';\.;/;g')
+            " substitution works
+            let filename = substitute(filename, '\.', '/', 'g')
+            " filename == .../.../... here
+            " let filename += '.html'
+            " let filename = filename + '.html'
+            " result is 0 here
+            " bug found:
+            " string concatenate operator is . in vim
+            " should use somestr .= ...
+            let filename .= '.html'
+        elseif filename !~ '.*\.html'
+            let filename += '.html'
+        endif
+        exe "!Safari " . $JDKDOC . '/' . filename
+    catch /*/
+        echo v:exception
+        echo 'something terrible happened'
+    " finally 
+    "     echo 'something terrible happened'
+    endtry
+endfun
+
+
 
 " :debug call Green()
 "

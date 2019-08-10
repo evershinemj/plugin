@@ -484,3 +484,7 @@ command! TomcatWebappsHome  :tabe $TOMCAT/webapps/home/
 command! Tomcat     :tabe $TOMCAT
 
 command! Webapps    :tabe $WEBAPPS
+
+command! PackaddMybatis     :packadd mybatis
+
+

@@ -1,5 +1,5 @@
 "autocmd FileType java,py,c,cpp      set dict+=~/mydict/coding-common
-au BufRead,BufNewFile *pom.xml      set thesaurus=~/mydict/maven
+au BufRead,BufNewFile *pom.xml      set thesaurus=~/mydict/maven | packadd completeall
 
 au BufRead ~/mydict/java*   set filetype=java
 au BufRead ~/linecomplete/java*   set filetype=java
